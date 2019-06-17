@@ -1,0 +1,12 @@
+<template name="App_body">
+    {{> loginButtons}}
+    {{> Template.dynamic template=main}}
+</template>
+
+<template name="App_forceLoggedIn">
+    {{#if currentUser}}
+        {{> Template.contentBlock}}
+    {{else}}
+        Please log in see this page.
+    {{/if}}
+</template>

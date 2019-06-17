@@ -1,0 +1,28 @@
+<template name="Teacher_mgmt_page">
+    <div class="container">
+        <header>
+            <h1>Manage teachers</h1>
+        </header>
+        {{#each teachers}}
+            <ul>
+                {{> teacher}}
+            </ul>
+        {{/each}}
+        <form class="new-teacher">
+            <span>
+                Name: <input name="name" type="text">
+                Office hours URL: <input name="url" type="text">
+                Note: <input name="note" type="text">
+            </span>
+            <input type="submit">
+        </form>
+    </div>
+</template>
+
+<template name="teacher">
+    <li><span id="{{_id}}">
+        Name: <input class="teacher-field" name="name" value="{{name}}" type="text">
+        Office hours URL: <input class="teacher-field" name="url" type="text" value="{{url}}">
+        Note: <input class="teacher-field" name="note" type="text" value="{{note}}">
+    </span></li>
+</template>

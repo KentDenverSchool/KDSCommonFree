@@ -1,0 +1,12 @@
+<template name="App_body">
+    {{> loginButtons}}
+    {{> Template.dynamic template=main}}
+</template>
+
+<template name="App_admin">
+    {{#if isInRole 'admin'}}
+        {{> Template.contentBlock}}
+    {{else}}
+        You do not have permission to view this page.
+    {{/if}}
+</template>

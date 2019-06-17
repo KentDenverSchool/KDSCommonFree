@@ -1,0 +1,19 @@
+<template name="OH_show_page">
+    <div class="container">
+        <header>
+            <h1>Office Hours</h1>
+        </header>
+        Search: <input type="text" name="search" class="teacher_search">
+        {{#each teachers}}
+            <ul>
+                {{> oh}}
+            </ul>
+        {{/each}}
+    </div>
+</template>
+
+<template name="oh">
+    <li><span id="{{_id}}">
+        <a href="{{url}}">{{name}}</a> - {{note}}
+    </span></li>
+</template>

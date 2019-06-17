@@ -1,0 +1,23 @@
+<template name="Sync_show_page">
+    <div class="container">
+        <header>
+            <h1>Sync events</h1>
+        </header>
+        <form class="new-event">
+            <strong>Add a new event:</strong><br>
+            <input type="text" name="title" placeholder="Title" /><br>
+            <input type="datetime-local" name="start_time" placeholder="" /><br>
+            <input type="datetime-local" name="end_time" placeholder="" /><br>
+            <input type="text" name="description" placeholder="Description" /><br>
+            <input type="submit" />
+        </form>
+        <strong>Your events</strong>
+        <ul>
+        {{#each cal_events}}
+            {{> event}}
+        {{/each}}
+        </ul>
+        <strong>Here is a list of your next 10 upcoming calendar events.</strong>
+        <input class="get_events_button" type="button" value="Fetch events"/>
+    </div>
+</template>

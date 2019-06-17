@@ -1,0 +1,26 @@
+<template name="Home_show_page">
+    <div class="container">
+        <header>
+            <h2>Today</h2>
+        </header>
+
+        <ul class="event_list">
+            {{#each events_today}}
+                {{> event}}
+            {{/each}}
+        </ul>
+
+        <header>
+            <h2>Later this week</h2>
+        </header>
+
+        <ul class="event_list">
+            {{#each events_later}}
+                {{> event}}
+            {{/each}}
+        </ul>
+
+        <a href="office_hours">Book office hours</a><br>
+        <a href="submit">Schedule an event</a>
+    </div>
+</template>
