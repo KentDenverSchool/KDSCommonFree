@@ -1,20 +1,20 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
-import { Teachers } from '../api/teachers.js';
+import { Clubs } from '../api/clubs.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './office_hours.html';
 
-Template.OH_show_page.onCreated(function bodyOnCreated() {
-    Meteor.subscribe('teachers');
+Template.Clubs_show_page.onCreated(function bodyOnCreated() {
+    Meteor.subscribe('clubs');
     this.filter = new ReactiveVar("");
 });
 
-Template.OH_show_page.helpers({
-    teachers() {
+Template.Clubs_show_page.helpers({
+    clubs() {
         const filter = Template.instance().filter.get();
         if(!filter) {
-            return Teachers.find({});
+            return Clubs.find({});
         } else {
             const filterRegex = new RegExp(`.*${filter}.*`, 'i');
             return Teachers.find({name: {$regex: filterRegex}});
@@ -22,7 +22,7 @@ Template.OH_show_page.helpers({
     }
 });
 
-Template.OH_show_page.events({
+Template.Clubs_show_page.events({
    'input .teacher_search'(event) {
        const target = event.target;
        Template.instance().filter.set(target.value);
